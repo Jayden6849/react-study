@@ -49,7 +49,7 @@ arr4.sort((a, b) => {
 console.log(arr4);
 
 // 4. toSorted
-// 원본은 가만히 두고 정렬된 샤로운 배열을 반환하는 메서드
+// 원본은 가만히 두고 정렬된 새로운 배열을 반환하는 메서드
 let arr5 = ["c", "a", "b"];
 const sorted = arr5.toSorted();
 
