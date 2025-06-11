@@ -10,13 +10,13 @@ const Editor = ({onCreate}) => {
     };
 
     const onKeydown = (e) => {
-        if(e.keyCode == 13) {
+        if(e.key === "Enter") {
             onSubmit();
         }
     };
 
     const onSubmit = () => {
-        if(content === "") {
+        if(content.trim() === "") {
             contentRef.current.focus();
             return;
         }
