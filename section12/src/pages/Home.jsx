@@ -1,4 +1,7 @@
 import { useSearchParams } from "react-router-dom";
+import Header from './../components/Header';
+import Button from './../components/Button';
+import DiaryList from "./../components/DiaryList";
 
 const Home = () => {
     const [params, setParams] = useSearchParams();
@@ -8,7 +11,10 @@ const Home = () => {
 
     return (
         <div>
-            HomePage
+            <Header title={"2025년 6월"} 
+                leftChild={<Button text={"<"} />} 
+                rightChild={<Button text={">"} />} />
+            <DiaryList />
         </div>
     );
 };
