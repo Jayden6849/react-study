@@ -61,7 +61,7 @@ export const DiaryDispatchContext = createContext();
 // 3. "/diary" : 일기를 상세히 조회하는 Diary 페이지
 function App() {
   const [data, dispatch] = useReducer(reducer, mock);
-  const idRef = useRef(3);
+  const idRef = useRef(4);
 
   // 새로운 일기를 추가
   const onCreate = (createdDate, emotionId, content) => {
