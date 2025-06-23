@@ -1,16 +1,16 @@
-import { useContext, useEffect, useState } from 'react';
-import { DiaryStateContext, DiaryDispatchContext } from './../App';
+import { useContext } from 'react';
+import { DiaryDispatchContext } from './../App';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from './../components/Header';
 import Button from './../components/Button';
 import Editor from './../components/Editor';
+import useDiary from '../hooks/useDiary';
 
 const Edit = () => {
     const params = useParams();
-    const nav = useNavigate();
-    const data = useContext(DiaryStateContext);
+    const nav = useNavigate();   
     const { onUpdate, onDelete } = useContext(DiaryDispatchContext);
-    const [curDiaryItem, setCurDiaryItem] = useState();
+    const curDiaryItem = useDiary(params.id);
 
     const onClickDelete = () => {
         const valiChk = confirm("일기를 정말로 삭제할까요? 다시 복구되지 않아요.");
@@ -22,17 +22,6 @@ const Edit = () => {
             return;
         }
     };
-
-    useEffect(() => {
-        const currentDiaryItem = data.find((item) => String(item.id) === String(params.id));
-        
-        if(!currentDiaryItem) {
-            alert("존재하지 않는 일기입니다.");
-            nav(-1, { replace: true }); // navigator 는 Dom 에 바로 넣으면 실행이 안 됨 - useEffect 안에서 써주면 해결
-        }
-
-        setCurDiaryItem(currentDiaryItem);
-    }, [params.id]);
 
     const onSubmit = (input) => {
         if(confirm("일기를 수정할까요?")) {
