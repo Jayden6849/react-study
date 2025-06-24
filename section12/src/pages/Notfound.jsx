@@ -1,4 +1,4 @@
-const Notfound = () => {
+const NotFound = () => {
     return (
         <div>
             존재하지 않는 페이지입니다.
@@ -6,4 +6,4 @@ const Notfound = () => {
     );
 };
 
-export default Notfound;
+export default NotFound;
